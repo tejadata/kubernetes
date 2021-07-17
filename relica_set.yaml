@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: ReplicaSet
+  labels:
+    app: myApp
+    type: flask_app
+
+spec:
+  template:
+    metadata:
+      name: flask
+      labels:
+        env: production
+    spec:
+      containers:
+        - name: Teja
+          image: viswabhanu/tejawithdata
+  replicas: 2
+  selector:
+    matchLabels:
+      type: flask_app
+    
